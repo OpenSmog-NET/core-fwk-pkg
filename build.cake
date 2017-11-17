@@ -9,7 +9,7 @@
 const string SolutionFile = "OS.Core.sln";
 
 var packages = getProjectsDirs(new string[] {
-    //"OS.Core.Queues
+    "OS.Core.Queues"
     //"OS.Core.ServiceBus"
 });
 
@@ -42,6 +42,8 @@ Task(Pack)
     .WithCriteria(canEmitArtifacts(@branch))
     .Does(() => {
     forEachPath(packages, null, (package) => {
+
+        System.Console.WriteLine(package);
         DotNetCorePack(package, getDotNetCorePackSettings(package, @branch, @buildNumber));
     });
 }); // Pack
