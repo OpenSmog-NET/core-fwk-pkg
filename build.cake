@@ -9,8 +9,8 @@
 const string SolutionFile = "OS.Core.sln";
 
 var packages = getProjectsDirs(new string[] {
-    "OS.Core.Queues"
-    //"OS.Core.ServiceBus"
+    "OS.Core.Queues",
+    "OS.Core.WebJobs"
 });
 
 Task(Restore).Does(() => {
