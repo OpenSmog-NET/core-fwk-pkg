@@ -4,6 +4,19 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <RootNamespace>OS.Core.WebJobs</RootNamespace>
+    <VersionPrefix>0.0.1</VersionPrefix>
+    <VersionSuffix>$(VersionSuffix)</VersionSuffix>
+    <Description>OpenSmog Azure WebJobs</Description>
+    <Copyright>OpenSmog</Copyright>
+    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
+    <PackageProjectUrl>http://opensmog.org</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/OpenSmog-NET/core-api-pkg</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+    <AssemblyVersion>0.0.1.0</AssemblyVersion>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.0-beta3" />
     <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.0-beta3" />
@@ -13,5 +26,4 @@
   <ItemGroup>
     <ProjectReference Include="..\OS.Core.Hosting\OS.Core.Hosting.csproj" />
   </ItemGroup>
-
 </Project>
