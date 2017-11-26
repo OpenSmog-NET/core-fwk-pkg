@@ -4,14 +4,14 @@ using System;
 
 namespace OS.Core.WebJobs
 {
-    public static class WebJobHostConfiguration
+    internal static class WebJobHostConfiguration
     {
-        public static JobHost Configure(IConfiguration configuration, IServiceProvider container, bool useServiceBus = false, bool useTimers = false)
+        public static JobHost Configure(IConfiguration configuration, IServiceProvider container)
         {
             var settings = GetSettings(configuration);
             var jobHostConfiguration = CreateJobHostConfiguration(container, settings);
 
-            if (useTimers)
+            if (settings.UseTimers)
             {
                 jobHostConfiguration.UseTimers();
             }

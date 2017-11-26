@@ -3,7 +3,7 @@ using System;
 
 namespace OS.Core.WebJobs
 {
-    public class WebJobActivator : IJobActivator
+    internal class WebJobActivator : IJobActivator
     {
         private readonly IServiceProvider container;
 

@@ -2,7 +2,7 @@
 
 namespace OS.Core.WebJobs
 {
-    public class WebJobSettings
+    public sealed class WebJobSettings
     {
         private readonly IConfiguration configuration;
 
@@ -14,12 +14,10 @@ namespace OS.Core.WebJobs
         public string DashboardConnectionStringName { get; set; }
         public string StorageConnectionStringName { get; set; }
 
-        public string ServiceBusConnectionStringName { get; set; }
+        public bool UseTimers { get; set; }
 
         public string DashboardConnectionString => configuration.GetConnectionString(DashboardConnectionStringName);
 
         public string StorageConnectionString => configuration.GetConnectionString(StorageConnectionStringName);
-
-        public string ServiceBusConectionString => configuration.GetConnectionString(ServiceBusConnectionStringName);
     }
 }

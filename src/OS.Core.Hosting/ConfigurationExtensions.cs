@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System;
 
-namespace OS.Core.WebJobs
+namespace OS.Core
 {
     public static class ConfigurationExtensions
     {
