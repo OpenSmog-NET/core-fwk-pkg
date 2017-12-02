@@ -29,11 +29,11 @@ namespace OS.Core.WebJobs
 
         private static JobHostConfiguration CreateJobHostConfiguration(IServiceProvider container, WebJobSettings settings)
         {
+            Environment.SetEnvironmentVariable("AzureWebJobsStorage", settings.StorageConnectionString);
+            Environment.SetEnvironmentVariable("AzureWebJobsDashboard", settings.DashboardConnectionString);
+
             var jobHostConfiguration = new JobHostConfiguration()
             {
-                DashboardConnectionString = settings.DashboardConnectionString,
-                StorageConnectionString = settings.StorageConnectionString,
-
                 JobActivator = new WebJobActivator(container)
             };
 
