@@ -25,7 +25,7 @@ namespace OS.Core
                 .SetBasePath(configBasePath)
                 .AddJsonFile("appSettings.json", true)
                 .AddJsonFile($"appSettings.{environment}.json", true)
-                .AddEnvironmentVariables(prefix: AspNetPrefix);
+                .AddEnvironmentVariables();
 
             if (environmentVariablesPrefix != null)
             {
