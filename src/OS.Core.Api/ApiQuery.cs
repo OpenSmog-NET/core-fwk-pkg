@@ -20,7 +20,7 @@ namespace OS.Core
 
         [FromQuery]
         public string Filter { get; set; }
-
+        public abstract TQuery GetQuery<TQuery>() where TQuery : Query, new();
         protected TQuery GetQuery<TQuery, TModel>()
             where TQuery : Query, new()
         {
