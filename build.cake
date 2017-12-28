@@ -9,8 +9,10 @@
 const string SolutionFile = "OS.Core.sln";
 
 var packages = getProjectsDirs(new string[] {
+    "OS.Core.Api",
     "OS.Core.Hosting",
     "OS.Core.Logging",
+    "OS.Core.Queries",
     "OS.Core.Queues",
     "OS.Core.WebJobs"
 });
