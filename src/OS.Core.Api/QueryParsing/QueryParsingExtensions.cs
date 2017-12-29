@@ -34,7 +34,7 @@ namespace OS.Core.QueryParsing
             return criteria;
         }
 
-        public static IList<FilterCriterium> ParseFilterCriteria<TModel>(this string source, Func<string, bool> allowedPropertyFilter, Func<string, bool> nestedPropertyFilter)
+        public static IList<FilterCriterium> ParseFilterCriteria<TModel>(this string source, Func<string, bool> allowedPropertyFilter = null, Func<string, bool> nestedPropertyFilter = null)
         {
             var criteria = new List<FilterCriterium>();
 
