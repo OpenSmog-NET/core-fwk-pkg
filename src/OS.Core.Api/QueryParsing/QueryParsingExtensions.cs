@@ -34,7 +34,7 @@ namespace OS.Core.QueryParsing
             return criteria;
         }
 
-        public static IList<FilterCriterium> ParseFilterCriteria<TModel>(this string source)
+        public static IList<FilterCriterium> ParseFilterCriteria<TModel>(this string source, Func<string, bool> allowedPropertyFilter, Func<string, bool> nestedPropertyFilter)
         {
             var criteria = new List<FilterCriterium>();
 
@@ -47,7 +47,7 @@ namespace OS.Core.QueryParsing
             matches.ForEach(match =>
             {
                 var criterium = new FilterCriterium();
-                var property = match.GetProperty<TModel>(criterium);
+                var property = match.GetProperty<TModel>(criterium, allowedPropertyFilter, nestedPropertyFilter);
 
                 match.SetCriteriumOperator(criterium);
                 match.SetCriteriumValue(criterium, property);

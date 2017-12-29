@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OS.Core.Queries;
 using OS.Core.QueryParsing;
+using System;
 
 namespace OS.Core
 {
@@ -20,16 +21,15 @@ namespace OS.Core
 
         [FromQuery]
         public string Filter { get; set; }
-        public abstract TQuery GetQuery<TQuery>() where TQuery : Query, new();
-        protected TQuery GetQuery<TQuery, TModel>()
-            where TQuery : Query, new()
+        public abstract Query GetQuery();
+        protected Query GetQuery<TModel>(Func<string, bool> allowedPropertyFilter = null, Func<string, bool> nestedPropertyFilter = null)
         {
-            var query = new TQuery()
+            var query = new Query()
             {
                 PageIndex = PageIndex > 0 ? PageIndex : DefaultPageIndex,
                 PageSize = PageSize > 0 ? PageSize : DefaultPageSize,
                 SortCriteria = Sort.ParseSortCriteria(),
-                FilterCriteria = Filter.ParseFilterCriteria<TModel>()
+                FilterCriteria = Filter.ParseFilterCriteria<TModel>(allowedPropertyFilter, nestedPropertyFilter)
             };
 
             return query;
